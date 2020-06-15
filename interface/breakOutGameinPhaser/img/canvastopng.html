@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Canvas to png
+	</title>
+</head>
+<body>
+	<canvas id="myCanvas" width="75" height="10"></canvas>
+
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		// var canvas = document.createElement("canvas");
+		var ballRadius = 10;
+		var ctx = canvas.getContext("2d");
+		ctx.beginPath();
+		// ctx.arc(10, 10, ballRadius, 0, Math.PI*2);
+		ctx.rect(0, 0, 75, 10);
+		ctx.fillStyle = "#0095DD";
+		ctx.fill();
+		ctx.closePath();
+		var image = new Image();
+		image.src = canvas.toDataURL("image/png");
+		document.body.appendChild(image)
+		alert("finished");
+	</script>
+</body>
+
+</html>
