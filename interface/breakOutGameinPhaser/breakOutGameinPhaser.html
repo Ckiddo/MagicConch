@@ -81,6 +81,10 @@
 		}
 	}
 
+	function handleOrientation(e){
+		paddle.x += e.gamma;
+	}
+
     function create(){
 		game.physics.startSystem(Phaser.Physics.ARCADE);
 		ball = game.add.sprite(game.world.width*0.5, game.world.height - 25, 'ball');
@@ -108,6 +112,7 @@
 		lifeLostText = game.add.text(game.world.width * 0.5, game.world.height * 0.5, 'Life lost, click to continue', {font: '18px Arial', fill: '#0095DD'});
 		lifeLostText.anchor.set(0.5);
 		lifeLostText.visible = false;
+	    	window.addEventListener("deviceorientation", handleOrientation, true);
 	}
 
 	function ballHitBrick(ball, brick){
